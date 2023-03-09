@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-todo-app';
+  weeks: string[][] = [];
+  onInit() {
+    for (let i = 0; i < 4; i++) {
+      this.weeks.push([]);
+    }
+  }
 }
