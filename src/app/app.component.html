@@ -1,8 +1,30 @@
 <div class="app-container">
   <div class="app-header">
-
+    <p>{{errorMessage}}</p>
+    <input
+      #yearSelector
+      type="text"
+      placeholder="year"
+      [value]="year"
+      (input)="onChangeYear(yearSelector.value)"
+    >
+    <div class="month-buttons">
+      <button
+        class="arrow-button arrow-left"
+        (click)="moveView(-1)"
+      >&lt;</button>
+      <button
+        class="arrow-button arrow-right"
+        (click)="moveView(1)"
+      >&gt;</button>
+    </div>
+    <p>{{ monthNames[month-1] + (showWeek?(" : " + week):"") }}</p>
+    <button
+      class="mode-toggle"
+      (click)="toggleMode()"
+    >{{ showWeek?"Weekly":"Monthly" }}</button>
   </div>
   <div class="app-body">
-    
+
   </div>
 </div>
