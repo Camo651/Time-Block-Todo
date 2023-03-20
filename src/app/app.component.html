@@ -1,4 +1,4 @@
 <div>
-  <app-header></app-header>
-  <app-board></app-board>
+    <app-homepage *ngIf="uuid==''" (homepageEvent)="authenticateUser($event)"></app-homepage>
+    <app-dashboard *ngIf="uuid!=''"></app-dashboard>
 </div>

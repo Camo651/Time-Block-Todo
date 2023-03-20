@@ -2,20 +2,14 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { TaskComponent } from './task/task.component';
-import { CardComponent } from './card/card.component';
-import { HeaderComponent } from './header/header.component';
-import { BoardComponent } from './board/board.component';
-import { ModalComponent } from './modal/modal.component';
+import { HomepageComponent } from '../pages/homepage/homepage.component';
+import { DashboardComponent } from '../pages/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TaskComponent,
-    CardComponent,
-    HeaderComponent,
-    BoardComponent,
-    ModalComponent,
+    HomepageComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule
