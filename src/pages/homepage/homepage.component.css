@@ -1,0 +1,120 @@
+.homepage-body{
+    background-color: var(--primary-color);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+}
+
+/* Title Bar */
+.title-bar{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 60vw;
+    background: rgb(25,227,183);
+    background: linear-gradient(90deg, rgba(25,227,183,1) 0%, rgba(98,155,181,1) 100%);
+    padding-top: 80px;
+}
+.title-bar h1{
+    color: var(--tertiary-color);
+    font-size: 5rem;
+    font-weight: 700;
+    margin: 20px 0;
+}
+.title-bar h3{
+    color: var(--tertiary-color);
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 20px 0;
+}
+.title-bar p{
+    color: var(--tertiary-color);
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 20px 0;
+}
+.title-bar hr{
+    width: 25%;
+    margin: 0;
+    margin-top: 50px;
+}
+.title-bar .g0{ animation: slideInFromLeft0 0.5s ease-in-out; animation-fill-mode: forwards;}
+.title-bar .g1{ animation: slideInFromLeft1 .8s ease-in-out; animation-fill-mode: forwards;}
+.title-bar .g2{ animation: slideInFromLeft2 1.1s ease-in-out; animation-fill-mode: forwards;}
+.title-bar .g3{ animation: slideInFromLeft3 1.4s ease-in-out; animation-fill-mode: forwards;}
+.title-bar .g4{ animation: slideInFromLeft3 1.7s ease-in-out; animation-fill-mode: forwards;}
+
+/* Action Bar */
+.action-bar{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 40vw;
+    background-color: var(--primary-color);
+}
+.action-bar-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+.action-bar-header a{
+  margin-right: 10px;
+}
+.action-bar-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    padding: 20px;
+}
+.action-bar-input-group{
+    width: 100%;
+}
+
+
+
+
+
+
+/* ANIMATIONS */
+@keyframes slideInFromLeft0{
+    0%{
+        margin-left: -100%;
+    }
+    100%{
+        margin-left: 80px;
+    }
+}
+@keyframes slideInFromLeft1{
+  0%{
+      margin-left: -100%;
+  }
+  100%{
+      margin-left: 100px;
+  }
+}
+@keyframes slideInFromLeft2{
+  0%{
+      margin-left: -100%;
+  }
+  100%{
+      margin-left: 180px;
+  }
+}
+@keyframes slideInFromLeft3{
+  0%{
+      margin-left: -100%;
+  }
+  40%{
+      margin-left: -100%;
+  }
+  100%{
+      margin-left: 30px;
+  }
+}
+/*  */

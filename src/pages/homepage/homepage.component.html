@@ -1,72 +1,78 @@
-<div>
+<div class="homepage-body">
     <div class="title-bar">
-        <h4>Welcome to</h4>
-        <h1>App name</h1>
-        <h4>Subtitle</h4>
-        <hr>
-        <p>Info about the app</p>
+        <h3 class="g0">Welcome to</h3>
+        <h1 class="g1">App name</h1>
+        <h3 class="g2">Subtitle</h3>
+        <hr class="hr-medium g3">
+        <p class="g4">Info about the app</p>
     </div>
     <div class="action-bar">
         <div class="action-bar-header">
-            <a>Home</a>
+            <a data-active="true">Home</a>
             <a>About</a>
             <a>Docs</a>
         </div>
         <div class="action-bar-body">
-            <div class="action-bar-register" *ngIf="!signin">
-                <hr>
-                <h4>Lets get started!</h4>
-                <div>
+            <div class="action-bar-title">
+              <hr class="hr-tiny">
+              <h4>{{signin?"Welcome back!":"Lets get started!"}}</h4>
+            </div>
+            <div class="action-bar-input-group" *ngIf="!signin">
+                <div class="vertical-group">
                     <input #signup_uname
+                        class="input-dark"
                         type="text"
                         placeholder="Username"
                         [value]="username"
                         (input)="editField('username', signup_uname.value)"
                     >
                     <input #signup_email
+                        class="input-dark"
                         type="email"
                         placeholder="Email"
                         [value]="email"
                         (input)="editField('email', signup_email.value)"
                     >
                     <input #signup_pwd
+                        class="input-dark"
                         type="password"
                         placeholder="Password"
                         [value]="password"
                         (input)="editField('password', signup_pwd.value)"
                     >
                     <input #signup_pwd2
+                        class="input-dark"
                         type="password"
                         placeholder="Confirm Password"
                         [value]="password2"
                         (input)="editField('password2', signup_pwd2.value)"
                     >
-                    <div>
+                    <div class="horizontal-group">
                         <button (click)="userSignUp()">Register</button>
-                        <div></div>
+                        <!-- Figure out a vertical bar solution -->
                         <p>By clicking "Create Account!" you agreeing to out Terms of Service found <a>here</a></p>
                     </div>
                     <h4>Already have an account?</h4>
                     <button type="button" (click)="switchModes()">Sign In</button>
                 </div>
             </div>
-            <div class="action-bar-login" *ngIf="signin">
-                <hr>
-                <h4>Welcome back!</h4>
-                <div>
+            <div class="action-bar-input-group" *ngIf="signin">
+                <div class="vertical-group">
                     <input #signin_uname
+                        class="input-dark"
                         type="text"
                         placeholder="Username"
                         [value]="username"
                         (input)="editField('username', signin_uname.value)"
                     >
                     <input #signin_pwd
+                        class="input-dark"
                         type="password"
                         placeholder="Password"
                         [value]="password"
                         (input)="editField('password', signin_pwd.value)"
                     >
-                    <div>
+                    <div class="horizontal-group">
                         <button (click)="userSignIn()">Sign In</button>
                         <input #remember_me
                             type="checkbox"

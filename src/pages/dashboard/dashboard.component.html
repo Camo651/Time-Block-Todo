@@ -1,1 +1,36 @@
-<p>dashboard works!</p>
+<div class="dashboard">
+  <div class="dashboard-header">
+    <div class="dashboard-header-left">
+      <button class="hamburger-button">Hamburger</button>
+      <h4 class="dashboard-title">My Dashboard</h4>
+    </div>
+    <div class="dashboard-header-right">
+      <button class="circular-button">Change Modes</button>
+      <button class="circular-button">Profile</button>
+    </div>
+  </div>
+  <div class="dashboard-body">
+    <div class="dashboard-1day">
+      <app-sidebar></app-sidebar>
+      <div class="dashboard-card-holder">
+        <app-card></app-card>
+        <app-card></app-card>
+      </div>
+    </div>
+    <div class="dashboard-3day">
+      <div class="dashboard-card-holder">
+        <app-card *ngFor="let item of null"></app-card>
+      </div>
+    </div>
+    <div class="dashboard-7day">
+      <div class="dashboard-card-holder">
+        <app-card *ngFor="let item of null"></app-card>
+      </div>
+    </div>
+    <div class="dashboard-35day">
+      <div class="dashboard-card-holder">
+        <app-card *ngFor="let item of null"></app-card>
+      </div>
+    </div>
+  </div>
+</div>

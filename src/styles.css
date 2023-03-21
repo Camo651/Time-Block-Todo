@@ -1,1 +1,101 @@
-/* You can add global styles to this file, and also import other style files */
+:root{
+  --primary-color: #192125;
+  --secondary-color: #3f4b51;
+  --tertiary-color: #ffffff;
+}
+html, body{
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+h1, h2, h3, h4, h5, h6, p, hr,a, button, input, textarea, label{
+  color: var(--tertiary-color);
+}
+
+/* Fonts */
+h1, h2, h3, h4{
+  font-family: 'Manrope' , sans-serif;
+}
+h5, h6{
+  font-family: 'Akshar' , sans-serif;
+}
+p, a, button, input, textarea, label{
+  font-family: 'Roboto' , sans-serif;
+}
+a{
+  color: var(--tertiary-color);
+  text-decoration: none;
+}
+a[data-active="true"]{
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
+button{
+  background: var(--secondary-color);
+  border: none;
+  border-radius: 5px;
+  color: var(--tertiary-color);
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 10px 20px;
+  cursor: pointer;
+  scale: 1;
+  transition: all 0.2s ease-in-out;
+}
+button:hover, button:active{
+  background: var(--tertiary-color);
+  color: var(--secondary-color);
+  scale: 1.01;
+}
+
+hr{
+  height: 1px;
+  background-color: var(--tertiary-color);
+  margin: 0;
+}
+.hr-tiny{
+  width: 10%;
+}
+.hr-small{
+  width: 25%;
+}
+.hr-medium{
+  width: 50%;
+}
+.hr-large{
+  width: 75%;
+}
+.hr-huge{
+  width: 90%;
+}
+.hr-vertical{
+  transform: rotate(90deg);
+}
+.vertical-group{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+}
+.horizontal-group{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+.input-dark{
+  background: var(--secondary-color);
+  border: 1px solid var(--tertiary-color);
+  border-radius: 5px;
+  color: var(--tertiary-color);
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 10px 20px;
+  width: 60%;
+  margin: 10px 0;
+}
