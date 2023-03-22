@@ -17,7 +17,6 @@ export class EmailConfirmationComponent {
       return;
     }
     if (index < 5) {
-      eml = document.getElementById("digit"+(index)) as HTMLInputElement;
       eml.focus();
       eml.value = "";
     }
@@ -42,6 +41,12 @@ export class EmailConfirmationComponent {
     eml.focus();
   }
   submitCode() {
-    alert("submit code");
+    // check that the code is even valid and filled out
+    // check with the server that the code is correct
+    // if correct, then set the user as authenticated
+    // if incorrect, then display an error message
+    // if the code is expired, then display an error message
+    // if all good then send to create a new user profile
+    // navigate to the dashboard if the user is authenticated
   }
 }

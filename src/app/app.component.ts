@@ -33,14 +33,11 @@ export class AppComponent {
         if ($event.newUser) {
             // email confirmation
             this.email = $event.email;
+            sendEmailConfirmation(this.email);
             this.updatePage();
         } else {
             // authenticate user
         }
-    }
-
-    confirmEmail($event:string) {
-        // confirm email
     }
 }
 
@@ -63,4 +60,11 @@ function generateUUID() {
 function checkUuidExists(uuid:string) {
     // check if uuid exists in database
     return false;
+}
+function sendEmailConfirmation(email:string) {
+    // send email confirmation with PHP mailer on server side
+    // server should also generate a 6 digit code and store it in the database
+    // as a kvp with the key as the email and the value as the code
+    // maybe make a timeout so that the code expires after 5 minutes or something
+    //https://github.com/PHPMailer/PHPMailer
 }
