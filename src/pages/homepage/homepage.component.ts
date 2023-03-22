@@ -7,7 +7,8 @@ import { Component, Output, EventEmitter} from '@angular/core';
 })
 export class HomepageComponent {
 
-    @Output() homepageEvent = new EventEmitter<{newUser:boolean, username:string, password:string, remember:boolean, password2:string, email:string}>();
+  @Output() homepageEvent = new EventEmitter<{newUser:boolean, username:string, password:string, remember:boolean, password2:string, email:string}>();
+  @Output() forgotPasswordEvent = new EventEmitter();
 
     signin = false;
     username = "";
@@ -48,5 +49,8 @@ export class HomepageComponent {
             case "email":this.email = value;break;
             case "remember":this.remember = value=="true"?true:false;break;
         }
+    }
+    forgotPassword(){
+        this.forgotPasswordEvent.emit();
     }
 }

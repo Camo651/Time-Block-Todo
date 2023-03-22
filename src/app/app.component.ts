@@ -11,18 +11,26 @@ export class AppComponent {
     email = "";
 
     constructor() {
-      this.updatePage();
+      this.setPage("homepage");
     }
-    updatePage(){
-      if(this.uuid != "") {
-        this.page = "dashboard";
-        return;
-      }
-      if(this.email != "") {
-        this.page = "email-confirmation";
-        return;
-      }
-      this.page = "homepage";
+    setPage(pg:string){
+        switch(pg) {
+            case "homepage":
+                this.page = "homepage";
+                break;
+            case "email-confirmation":
+                this.page = "email-confirmation";
+                break;
+            case "dashboard":
+              if(this.uuid != "")
+                    this.page = "dashboard";
+                break;
+            case "forgot-password":
+                this.page = "forgot-password";
+                break;
+            default:
+                this.page = "homepage";
+        }
     }
 
     setUser(uuid:string) {
@@ -34,22 +42,26 @@ export class AppComponent {
             // email confirmation
             this.email = $event.email;
             sendEmailConfirmation(this.email);
-            this.updatePage();
+            this.setPage("email-confirmation");
         } else {
             // authenticate user
         }
     }
     backToHome() {
         this.email = "";
-        this.updatePage();
+        this.uuid = "";
+        this.setPage("homepage");
     }
     submitConfirmationCode(code:string) {
         this.uuid = code;
-        this.updatePage();
+        this.setPage("dashboard");
     }
     resendCode() {
         sendEmailConfirmation(this.email);
         alert("Code resent");
+    }
+    forgotPassword() {
+        this.setPage("forgot-password");
     }
 }
 

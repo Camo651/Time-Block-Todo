@@ -2,6 +2,7 @@
     <app-homepage
       *ngIf="page=='homepage'"
       (homepageEvent)="authenticateUser($event)"
+      (forgotPasswordEvent)="forgotPassword()"
     ></app-homepage>
     <app-dashboard
       *ngIf="page=='dashboard'"
@@ -13,4 +14,8 @@
       (emailConfirmationCodeSentEvent)="resendCode()"
       (submitConfirmationCodeEvent)="submitConfirmationCode($event)"
     ></app-email-confirmation>
+    <app-forgot-password
+      *ngIf="page=='forgot-password'"
+      (backToHomeEvent)="backToHome()"
+    ></app-forgot-password>
 </div>

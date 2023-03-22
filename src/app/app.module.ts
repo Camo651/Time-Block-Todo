@@ -9,6 +9,7 @@ import { SidebarComponent } from '../components/sidebar/sidebar.component';
 import { ModalComponent } from '../components/modal/modal.component';
 import { BoardCardComponent } from '../components/board-card/board-card.component';
 import { EmailConfirmationComponent } from '../pages/email-confirmation/email-confirmation.component';
+import { ForgotPasswordComponent } from '../pages/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -20,9 +21,10 @@ import { EmailConfirmationComponent } from '../pages/email-confirmation/email-co
     ModalComponent,
     BoardCardComponent,
     EmailConfirmationComponent,
+    ForgotPasswordComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
