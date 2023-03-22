@@ -6,24 +6,42 @@ import { Component } from '@angular/core';
 	styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+    page = "homepage";
     uuid = "";
+    email = "";
+
+    constructor() {
+      this.updatePage();
+    }
+    updatePage(){
+      if(this.uuid != "") {
+        this.page = "dashboard";
+        return;
+      }
+      if(this.email != "") {
+        this.page = "email-confirmation";
+        return;
+      }
+      this.page = "homepage";
+    }
+
     setUser(uuid:string) {
         this.uuid = uuid;
     }
 
-    authenticateUser($event:{newUser:boolean, username:string, password:string, remember?:boolean, password2?:string, email?:string}) {
+    authenticateUser($event:{newUser:boolean, username:string, password:string, remember:boolean, password2:string, email:string}) {
         if ($event.newUser) {
-            // create new user
-            let uuid = generateUUID();
-            while (checkUuidExists(uuid)) {
-                uuid = generateUUID();
-            }
+            // email confirmation
+            this.email = $event.email;
+            this.updatePage();
         } else {
             // authenticate user
         }
     }
 
-
+    confirmEmail($event:string) {
+        // confirm email
+    }
 }
 
 function generateUUID() {

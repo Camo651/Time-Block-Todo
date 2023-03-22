@@ -1,0 +1,21 @@
+<div class="email-confirm-body vertical-group">
+  <img src="assets/images/emailcode.png">
+  <h1>Check your inbox!</h1>
+  <p class="email-confirmation-text">A 6 digit confirmation code has been sent to your email</p>
+  <div class="email-confirmation-input horizontal-group">
+    <div class="digits">
+      <input
+        *ngFor="let item of digits; let i = index"
+        id="digit{{i}}"
+        type="text"
+        maxlength="1"
+        name="digit{{i}}"
+        [value]="digits[i]"
+        (input)="inputDigit(i)"
+      />
+    </div>
+  </div>
+  <button (click)="submitCode()">Confirm!</button>
+  <div class="email-confirmation-button horizontal-group">
+    <a>Back to homepage</a><h5 class="vr">|</h5><a>Send another code</a>
+</div>

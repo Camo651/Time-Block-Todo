@@ -1,4 +1,5 @@
 <div>
-    <app-homepage *ngIf="uuid==''" (homepageEvent)="authenticateUser($event)"></app-homepage>
-    <app-dashboard *ngIf="uuid!=''"></app-dashboard>
+    <app-homepage *ngIf="page=='homepage'" (homepageEvent)="authenticateUser($event)"></app-homepage>
+    <app-dashboard *ngIf="page=='dashboard'"></app-dashboard>
+    <app-email-confirmation *ngIf="page=='email-confirmation'"></app-email-confirmation>
 </div>

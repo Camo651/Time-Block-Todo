@@ -7,7 +7,7 @@ import { Component, Output, EventEmitter} from '@angular/core';
 })
 export class HomepageComponent {
 
-    @Output() homepageEvent = new EventEmitter<{newUser:boolean, username:string, password:string, remember?:boolean, password2?:string, email?:string}>();
+    @Output() homepageEvent = new EventEmitter<{newUser:boolean, username:string, password:string, remember:boolean, password2:string, email:string}>();
 
     signin = false;
     username = "";
@@ -23,7 +23,9 @@ export class HomepageComponent {
             newUser: false,
             username: this.username,
             password: this.password,
-            remember: this.remember
+            remember: this.remember,
+            password2: "",
+            email: ""
         };
         this.homepageEvent.emit(user);
     }
@@ -33,7 +35,8 @@ export class HomepageComponent {
             username: this.username,
             password: this.password,
             password2: this.password2,
-            email: this.email
+            email: this.email,
+            remember: this.remember
         };
         this.homepageEvent.emit(user);
     }

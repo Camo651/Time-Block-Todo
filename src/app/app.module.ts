@@ -8,6 +8,7 @@ import { CardComponent } from '../components/card/card.component';
 import { SidebarComponent } from '../components/sidebar/sidebar.component';
 import { ModalComponent } from '../components/modal/modal.component';
 import { BoardCardComponent } from '../components/board-card/board-card.component';
+import { EmailConfirmationComponent } from '../pages/email-confirmation/email-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { BoardCardComponent } from '../components/board-card/board-card.componen
     SidebarComponent,
     ModalComponent,
     BoardCardComponent,
+    EmailConfirmationComponent,
   ],
   imports: [
     BrowserModule
