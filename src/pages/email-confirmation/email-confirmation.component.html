@@ -17,5 +17,7 @@
   </div>
   <button (click)="submitCode()">Confirm!</button>
   <div class="email-confirmation-button horizontal-group">
-    <a>Back to homepage</a><h5 class="vr">|</h5><a>Send another code</a>
+    <a (click)="backToHome()">Back to homepage</a><h5 class="vr">|</h5><a (click)="sendNewCode()">Send another code</a>
 </div>
+
+

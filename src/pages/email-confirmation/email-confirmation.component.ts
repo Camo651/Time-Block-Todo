@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-email-confirmation',
@@ -6,6 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./email-confirmation.component.css']
 })
 export class EmailConfirmationComponent {
+  @Output() backToHomeEvent = new EventEmitter();
+  @Output() submitConfirmationCodeEvent = new EventEmitter<string>();
+  @Output() emailConfirmationCodeSentEvent = new EventEmitter();
   digits=["","","","","",""];
   inputDigit(index:number) {
     let eml = document.getElementById("digit"+index) as HTMLInputElement;
@@ -32,7 +35,6 @@ export class EmailConfirmationComponent {
     return true;
   }
   ngAfterViewInit() {
-    //init each digit to ""
     for (let i = 0; i < 6; i++) {
       this.digits[i] = "";
     }
@@ -48,5 +50,17 @@ export class EmailConfirmationComponent {
     // if the code is expired, then display an error message
     // if all good then send to create a new user profile
     // navigate to the dashboard if the user is authenticated
+
+    let code = "";
+    for (let i = 0; i < 6; i++) {
+      code += this.digits[i];
+    }
+    this.submitConfirmationCodeEvent.emit(code);
+  }
+  backToHome(){
+    this.backToHomeEvent.emit();
+  }
+  sendNewCode(){
+    this.emailConfirmationCodeSentEvent.emit();
   }
 }

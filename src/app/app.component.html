@@ -1,5 +1,16 @@
 <div>
-    <app-homepage *ngIf="page=='homepage'" (homepageEvent)="authenticateUser($event)"></app-homepage>
-    <app-dashboard *ngIf="page=='dashboard'"></app-dashboard>
-    <app-email-confirmation *ngIf="page=='email-confirmation'"></app-email-confirmation>
+    <app-homepage
+      *ngIf="page=='homepage'"
+      (homepageEvent)="authenticateUser($event)"
+    ></app-homepage>
+    <app-dashboard
+      *ngIf="page=='dashboard'"
+
+    ></app-dashboard>
+    <app-email-confirmation
+      *ngIf="page=='email-confirmation'"
+      (backToHomeEvent)="backToHome()"
+      (emailConfirmationCodeSentEvent)="resendCode()"
+      (submitConfirmationCodeEvent)="submitConfirmationCode($event)"
+    ></app-email-confirmation>
 </div>

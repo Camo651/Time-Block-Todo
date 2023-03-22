@@ -39,6 +39,18 @@ export class AppComponent {
             // authenticate user
         }
     }
+    backToHome() {
+        this.email = "";
+        this.updatePage();
+    }
+    submitConfirmationCode(code:string) {
+        this.uuid = code;
+        this.updatePage();
+    }
+    resendCode() {
+        sendEmailConfirmation(this.email);
+        alert("Code resent");
+    }
 }
 
 function generateUUID() {
