@@ -5,7 +5,8 @@
       <h4 class="dashboard-title">My Dashboard</h4>
     </div>
     <div class="dashboard-header-right">
-      <button class="circular-button">Change Modes</button>
+      <button class="circular-button">Notebook</button>
+      <button *ngIf="dashboardSize > 1" class="circular-button">Change Modes</button>
       <button class="circular-button">Profile</button>
     </div>
   </div>
