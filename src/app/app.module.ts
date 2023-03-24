@@ -10,6 +10,7 @@ import { ModalComponent } from '../components/modal/modal.component';
 import { BoardCardComponent } from '../components/board-card/board-card.component';
 import { EmailConfirmationComponent } from '../pages/email-confirmation/email-confirmation.component';
 import { ForgotPasswordComponent } from '../pages/forgot-password/forgot-password.component';
+import { NotebookComponent } from '../components/notebook/notebook.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ForgotPasswordComponent } from '../pages/forgot-password/forgot-passwor
     BoardCardComponent,
     EmailConfirmationComponent,
     ForgotPasswordComponent,
+    NotebookComponent,
   ],
   imports: [
     BrowserModule,

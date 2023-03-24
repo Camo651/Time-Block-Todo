@@ -9,7 +9,6 @@ export class AppComponent {
     page = "homepage";
     uuid = "";
     email = "";
-
     constructor() {
       this.setPage("homepage");
     }

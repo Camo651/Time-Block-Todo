@@ -1,21 +1,21 @@
-<div>
+<div [ngSwitch]="page">
     <app-homepage
-      *ngIf="page=='homepage'"
+      *ngSwitchCase="'homepage'"
       (homepageEvent)="authenticateUser($event)"
       (forgotPasswordEvent)="forgotPassword()"
     ></app-homepage>
     <app-dashboard
-      *ngIf="page=='dashboard'"
+      *ngSwitchCase="'dashboard'"
 
     ></app-dashboard>
     <app-email-confirmation
-      *ngIf="page=='email-confirmation'"
+      *ngSwitchCase="'email-confirmation'"
       (backToHomeEvent)="backToHome()"
       (emailConfirmationCodeSentEvent)="resendCode()"
       (submitConfirmationCodeEvent)="submitConfirmationCode($event)"
     ></app-email-confirmation>
     <app-forgot-password
-      *ngIf="page=='forgot-password'"
+      *ngSwitchCase="'forgot-password'"
       (backToHomeEvent)="backToHome()"
     ></app-forgot-password>
 </div>

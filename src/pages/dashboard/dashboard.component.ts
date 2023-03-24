@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class DashboardComponent {
   dashboardSize = 1;
+  notebookActive = false;
+
+
+  toggleNotebook() {
+    this.notebookActive = !this.notebookActive;
+  }
 }

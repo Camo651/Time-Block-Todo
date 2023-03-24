@@ -5,13 +5,13 @@
       <h4 class="dashboard-title">My Dashboard</h4>
     </div>
     <div class="dashboard-header-right">
-      <button class="circular-button">Notebook</button>
+      <button class="circular-button" (click)="toggleNotebook()">Notebook</button>
       <button *ngIf="dashboardSize > 1" class="circular-button">Change Modes</button>
       <button class="circular-button">Profile</button>
     </div>
   </div>
   <div class="dashboard-body">
-    <div class="dashboard-1day">
+    <div class="dashboard-1day" >
       <app-sidebar></app-sidebar>
       <div class="dashboard-card-holder">
         <app-card></app-card>
@@ -33,5 +33,6 @@
         <app-card *ngFor="let item of null"></app-card>
       </div>
     </div>
+    <app-notebook *ngIf="notebookActive"></app-notebook>
   </div>
 </div>
