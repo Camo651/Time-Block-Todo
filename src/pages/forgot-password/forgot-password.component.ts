@@ -1,4 +1,5 @@
-import { Component, Output, EventEmitter} from '@angular/core';
+import { Component} from '@angular/core';
+import { PageRouterService } from 'src/services/page-router.service';
 
 @Component({
   selector: 'app-forgot-password',
@@ -6,7 +7,9 @@ import { Component, Output, EventEmitter} from '@angular/core';
   styleUrls: ['./forgot-password.component.css']
 })
 export class ForgotPasswordComponent {
-  @Output() backToHomeEvent = new EventEmitter();
+  constructor(
+    private pagerouterService:PageRouterService
+  ){}
   emailForgotPassword = '';
   sendForgotPasswordLink() {
     console.log('sendForgotPasswordLink');
@@ -15,6 +18,6 @@ export class ForgotPasswordComponent {
     this.emailForgotPassword = e;
   }
   backToHome() {
-    this.backToHomeEvent.emit();
+    this.pagerouterService.setPage("homepage");
   }
 }

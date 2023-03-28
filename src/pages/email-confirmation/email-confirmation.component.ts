@@ -1,4 +1,6 @@
-import { Component, Output, EventEmitter} from '@angular/core';
+import { Component} from '@angular/core';
+import { PageRouterService } from 'src/services/page-router.service';
+import { UserdataService } from 'src/services/userdata.service';
 
 @Component({
   selector: 'app-email-confirmation',
@@ -6,9 +8,10 @@ import { Component, Output, EventEmitter} from '@angular/core';
   styleUrls: ['./email-confirmation.component.css']
 })
 export class EmailConfirmationComponent {
-  @Output() backToHomeEvent = new EventEmitter();
-  @Output() submitConfirmationCodeEvent = new EventEmitter<string>();
-  @Output() emailConfirmationCodeSentEvent = new EventEmitter();
+  constructor(
+    private userDataService:UserdataService,
+    private pagerouterService:PageRouterService
+  ) {}
   digits=["","","","","",""];
   inputDigit(index:number) {
     let eml = document.getElementById("digit"+index) as HTMLInputElement;
@@ -55,12 +58,12 @@ export class EmailConfirmationComponent {
     for (let i = 0; i < 6; i++) {
       code += this.digits[i];
     }
-    this.submitConfirmationCodeEvent.emit(code);
+    this.pagerouterService.setPage("dashboard");
   }
   backToHome(){
-    this.backToHomeEvent.emit();
+    this.pagerouterService.setPage("homepage");
   }
   sendNewCode(){
-    this.emailConfirmationCodeSentEvent.emit();
+    // send a new code to the user's email
   }
 }

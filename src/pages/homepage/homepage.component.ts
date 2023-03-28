@@ -1,4 +1,6 @@
-import { Component, Output, EventEmitter} from '@angular/core';
+import { Component} from '@angular/core';
+import { PageRouterService } from 'src/services/page-router.service';
+import { UserdataService } from 'src/services/userdata.service';
 
 @Component({
   selector: 'app-homepage',
@@ -6,10 +8,10 @@ import { Component, Output, EventEmitter} from '@angular/core';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent {
-
-  @Output() homepageEvent = new EventEmitter<{newUser:boolean, username:string, password:string, remember:boolean, password2:string, email:string}>();
-  @Output() forgotPasswordEvent = new EventEmitter();
-
+  constructor(
+    private userDataService:UserdataService,
+    private pageRouterService:PageRouterService
+  ){}
     signin = false;
     username = "";
     password = "";
@@ -17,40 +19,41 @@ export class HomepageComponent {
     email = "";
     remember = false;
     switchModes() {
-        this.signin = !this.signin;
+      this.signin = !this.signin;
     }
     userSignIn() {
-        let user = {
-            newUser: false,
-            username: this.username,
-            password: this.password,
-            remember: this.remember,
-            password2: "",
-            email: ""
-        };
-        this.homepageEvent.emit(user);
+      let user = {
+        newUser: false,
+        username: this.username,
+        password: this.password,
+        remember: this.remember,
+        password2: "",
+        email: ""
+      };
+      this.pageRouterService.setPage("dashboard");
     }
     userSignUp() {
-        let user = {
-            newUser: true,
-            username: this.username,
-            password: this.password,
-            password2: this.password2,
-            email: this.email,
-            remember: this.remember
-        };
-        this.homepageEvent.emit(user);
+      let user = {
+        newUser: true,
+        username: this.username,
+        password: this.password,
+        password2: this.password2,
+        email: this.email,
+        remember: this.remember
+      };
+      this.pageRouterService.setPage("email-confirmation");
+
     }
     editField(field:string, value:string) {
-        switch(field) {
-            case "username":this.username = value;break;
-            case "password":this.password = value;break;
-            case "password2":this.password2 = value;break;
-            case "email":this.email = value;break;
-            case "remember":this.remember = value=="true"?true:false;break;
-        }
+      switch(field) {
+        case "username":this.username = value;break;
+        case "password":this.password = value;break;
+        case "password2":this.password2 = value;break;
+        case "email":this.email = value;break;
+        case "remember":this.remember = value=="true"?true:false;break;
+      }
     }
     forgotPassword(){
-        this.forgotPasswordEvent.emit();
+      this.pageRouterService.setPage("forgot-password");
     }
 }

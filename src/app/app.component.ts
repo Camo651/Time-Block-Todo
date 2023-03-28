@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { PageRouterService } from 'src/services/page-router.service';
+import { UserdataService } from 'src/services/userdata.service';
 
 @Component({
 	selector: 'app-root',
@@ -6,62 +8,15 @@ import { Component } from '@angular/core';
 	styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    page = "homepage";
-    uuid = "";
-    email = "";
-    constructor() {
-      this.setPage("homepage");
-    }
-    setPage(pg:string){
-        switch(pg) {
-            case "homepage":
-                this.page = "homepage";
-                break;
-            case "email-confirmation":
-                this.page = "email-confirmation";
-                break;
-            case "dashboard":
-              if(this.uuid != "")
-                    this.page = "dashboard";
-                break;
-            case "forgot-password":
-                this.page = "forgot-password";
-                break;
-            default:
-                this.page = "homepage";
-        }
-    }
-
-    setUser(uuid:string) {
-        this.uuid = uuid;
-    }
-
-    authenticateUser($event:{newUser:boolean, username:string, password:string, remember:boolean, password2:string, email:string}) {
-        if ($event.newUser) {
-            // email confirmation
-            this.email = $event.email;
-            sendEmailConfirmation(this.email);
-            this.setPage("email-confirmation");
-        } else {
-            // authenticate user
-        }
-    }
-    backToHome() {
-        this.email = "";
-        this.uuid = "";
-        this.setPage("homepage");
-    }
-    submitConfirmationCode(code:string) {
-        this.uuid = code;
-        this.setPage("dashboard");
-    }
-    resendCode() {
-        sendEmailConfirmation(this.email);
-        alert("Code resent");
-    }
-    forgotPassword() {
-        this.setPage("forgot-password");
-    }
+  constructor(
+    private userDataService:UserdataService,
+    private pageRouterService:PageRouterService
+  ) {
+    console.log(userDataService.getUserName());
+  }
+  getPage() {
+    return this.pageRouterService.getPage();
+  }
 }
 
 function generateUUID() {
